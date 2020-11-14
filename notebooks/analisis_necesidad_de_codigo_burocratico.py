@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 df = pd.read_csv("../data/original/Entrenamiento.csv")
+df = df[(df['Stage']!='Proposal') & (df['Stage']!='Negotiation') & (df['Stage']!='Qualification')]
 df = df[['Bureaucratic_Code_0_Approval','Bureaucratic_Code_0_Approved','Stage']]
 
 conditionlist = [
@@ -21,8 +22,12 @@ conditionlist = [
 choicelist = [5, 6, 7, 8]
 df['estado2'] = np.select(conditionlist, choicelist, default='Not Specified')
 
-e1 = df['estado1'].value_counts().values
-e2 = df['estado2'].value_counts().values
+e1 = df['estado1'].value_counts().sort_index().values
+e2 = df['estado2'].value_counts().sort_index().values
+
+e1 = e1/e1.sum()*100
+e2 = e2/e2.sum()*100
+
 values = np.concatenate((e1, e2), axis=None).tolist()
 
 fig = go.Figure(data=[go.Sankey(
