@@ -35,8 +35,8 @@ fig = go.Figure(data=[go.Sankey(
       pad = 15,
       thickness = 20,
       line = dict(color = "black", width = 0.5),
-      label = ["necesita codigo burocratico", "no necesita codigo burocratico", "obtuvo codigo burocratico", "no obtuvo burocratico", "oportunidad ganada", "oportunidad perdida"],
-      color = "blue"
+      label = ["necesita codigo burocratico", "no necesita codigo burocratico", "obtuvo codigo burocratico", "no obtuvo codigo  burocratico", "oportunidad ganada", "oportunidad perdida"],
+      #color = "blue"
     ),
     link = dict(
       source = [0, 0, 1, 2, 2, 3, 3], # indices correspond to labels, eg A1, A2, A2, B1, ...
@@ -50,5 +50,10 @@ fig.update_layout(
         'y':0.9,
         'x':0.5,
         'xanchor': 'center',
-        'yanchor': 'top'})
+        'yanchor': 'top'},
+        font=dict(
+        #family="Courier New, monospace",
+        size=20,
+        color="RebeccaPurple"
+    ))
 fig.show()

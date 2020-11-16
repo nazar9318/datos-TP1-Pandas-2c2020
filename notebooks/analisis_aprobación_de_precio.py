@@ -39,7 +39,8 @@ fig = go.Figure(data=[go.Sankey(
       thickness = 20,
       line = dict(color = "black", width = 0.5),
       label = ["necesita aprobación", "no necesita aprobación", "obtuvo aprobación", "no obtuvo aprobación", "oportunidad ganada", "oportunidad perdida"],
-      color = "blue"
+      #color= ['LightSkyBlue', 'MediumPurple', "blue", "blue", "blue", "blue", "red"]
+      #color = "blue"
     ),
     link = dict(
       source = [0, 0, 1, 2, 2, 3, 3], # indices correspond to labels, eg A1, A2, A2, B1, ...
@@ -54,5 +55,10 @@ fig.update_layout(
         'y':0.9,
         'x':0.5,
         'xanchor': 'center',
-        'yanchor': 'top'})
+        'yanchor': 'top'},
+        font=dict(
+        #family="Courier New, monospace",
+        size=20,
+        color="RebeccaPurple"
+    ))
 fig.show()
